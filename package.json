@@ -6,7 +6,7 @@
     "start": "babel-node ./bin/www",
     "client": "cd client && yarn start",
     "watch": "nodemon ./bin/www",
-    "heroku-postbuild": "cd client && npm install && npm run build",
+    "heroku-postbuild": "cd client && yarn && yarn run build",
     "dev": "concurrently --kill-others-on-fail \"yarn watch\" \"yarn client\" "
   },
   "dependencies": {
