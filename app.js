@@ -1,13 +1,26 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import mongoose, { mongo } from 'mongoose';
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+
+import indexRouter from './routes/index';
+import usersRouter from './routes/users';
 
 var app = express();
+
+
+//db stuff
+mongoose.connect('mongodb://localhost/turbodb')
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('db connected!!')
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

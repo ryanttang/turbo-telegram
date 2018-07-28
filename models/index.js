@@ -1,8 +1,8 @@
-const OrganizationLead = require('./OrganizationLead')
-const Manager = require('./Manager');
-const Property = require('./Property')
-const User = require('./User');
+import OrganizationLead from './OrganizationLead'
+import Manager from './Manager';
+import Property from './Property';
+import User from './User';
 
-module.exports = {
+ export {
     OrganizationLead, Manager, Property, User
 }

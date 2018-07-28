@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const OrganizationLead = new Schema({
+const leadSchema = new Schema({
     name:  String,
     email: String,
     phone:   String,
-    managers: [{_id: ObjectId}] 
+    managers: [{ type: Schema.Types.ObjectId, ref: 'Story' }],
     comments: [{ body: String, date: Date }],
     date: { type: Date, default: Date.now },
     hidden: Boolean,
@@ -15,4 +15,5 @@ const OrganizationLead = new Schema({
     }
   });
 
-module.exports = OrganizationLead;
+export default Lead = mongoose.model('Lead', leadSchema);
+
