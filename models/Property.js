@@ -1,18 +1,12 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const propertySchema = new Schema({
-    name:  String,
-    email: String,
-    phone:   String,
-    managers: [{_id: ObjectId}] 
-    comments: [{ body: String, date: Date }],
-    date: { type: Date, default: Date.now },
-    hidden: Boolean,
-    meta: {
-      votes: Number,
-      favs:  Number
-    }
+    address:  String,
+    super: String,
+    pointOfContact: String,
+    calendar: String
   });
-
-export default Property = mongoose.model('Property', propertySchema)
+ 
+  const Property = mongoose.model('Property', propertySchema)
+  module.exports = Property;
