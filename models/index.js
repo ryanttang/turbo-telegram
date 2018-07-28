@@ -4,5 +4,5 @@ const Property = require('./Property');
 const Worker = require('./Worker');
 
 module.exports = {
-    Lead, Manager, Property, Worker
+  Lead, Manager, Property, Worker
 } 
