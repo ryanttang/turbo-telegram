@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  withRouter
+  withRouter,
 } from 'react-router-dom'
 import { Navbar, Button, Card, Elevation } from '@blueprintjs/core';
 
@@ -27,16 +27,23 @@ const App = () => (
 
       </ul>
 
+
       <hr />
-      <Card interactive={true} elevation={Elevation.TWO}>
+      <div>
         <Route exact path="/" component={Login} large={true} />
         <Route path="/controlPanel" component={ControlPanel} />
         <Route path="/createManagers" component={CreateManagers} />
         <Route path="/createProperties" component={CreateProperties} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/calendars" component={Calendars} />
-      </Card>
+        <Route exact path="/calendar" component={Calendar} />
+        <Route exact path="/calendars" component={Calendars} />
+      </div>
     </div>
   </Router>
 )
+
+const MainLayout = props =>
+  <Card interactive={true} elevation={Elevation.TWO}>
+    {props.children}
+  </Card>
+
 export default App
