@@ -5,7 +5,6 @@ import {
   Link,
   withRouter,
 } from 'react-router-dom'
-import { Navbar, Button, Card, Elevation } from '@blueprintjs/core';
 
 import Login from './Login';
 import ControlPanel from './ControlPanel';
@@ -13,6 +12,7 @@ import CreateManagers from './CreateManagers';
 import CreateProperties from './CreateProperties';
 import Calendar from './Calendar';
 import Calendars from './Calendars';
+import Layout from './Layout';
 
 const App = () => (
   <Router>
@@ -41,9 +41,5 @@ const App = () => (
   </Router>
 )
 
-const MainLayout = props =>
-  <Card interactive={true} elevation={Elevation.TWO}>
-    {props.children}
-  </Card>
 
 export default App
