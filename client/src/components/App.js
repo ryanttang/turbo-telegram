@@ -28,7 +28,7 @@ const App = () => (
       </ul>
 
       <hr />
-      <Card interactive={true} elevation={Elevation.TWO}>
+      <Card interactive={true} elevation={Elevation.TWO} location={location}>
         <Route exact path="/" component={Login} large={true} />
         <Route path="/controlPanel" component={ControlPanel} />
         <Route path="/createManagers" component={CreateManagers} />
