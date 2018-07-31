@@ -1,10 +1,11 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom';
+import Layout from './Layout';
 
 import Calendar from './Calendar';
 
 const Calendars = ({ match }) => (
-    <div>
+    <Layout>
       <h2>Property Schedule</h2>
       <ul>
         <li>
@@ -28,7 +29,7 @@ const Calendars = ({ match }) => (
       <Route exact path={match.path} render={() => (
         <h3>Please select a topic.</h3>
       )}/>
-    </div>
+    </Layout>
   )
 
 export default Calendars;
