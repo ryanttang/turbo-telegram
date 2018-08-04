@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from './Layout';
 
 const CreateProperties = () => (
-    <Layout>
+    <div>
       <h2>Create Properties</h2>
-    </Layout>
+    </div>
   )
 
 export default CreateProperties;

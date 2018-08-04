@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from './Layout';
 
 const CreateManagers = () => (
-    <Layout>
+    <div>
       <h2>Create Managers</h2>
-    </Layout>
+    </div>
   )
 
 export default CreateManagers;
