@@ -4,7 +4,7 @@ import Layout from './Layout';
 
 const Home = (props) =>
   <div>
-    our home
+    <img src="./logo2.png" width="500" />
   </div>
 
 
