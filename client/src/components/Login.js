@@ -3,10 +3,10 @@ import { Button, Intent } from "@blueprintjs/core";
 import Layout from './Layout'
 
 const Login = () => (
-  <Layout>
+  <div>
     <h2>Login</h2>
     <Button>Sign In</Button>
-  </Layout>
+  </div>
 )
 
 export default Login

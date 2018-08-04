@@ -5,7 +5,7 @@ import Layout from './Layout';
 import Calendar from './Calendar';
 
 const Calendars = ({ match }) => (
-    <Layout>
+    <div>
       <h2>Property Schedule</h2>
       <ul>
         <li>
@@ -29,7 +29,7 @@ const Calendars = ({ match }) => (
       <Route exact path={match.path} render={() => (
         <h3>Please select a topic.</h3>
       )}/>
-    </Layout>
+    </div>
   )
 
 export default Calendars;

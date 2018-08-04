@@ -93,7 +93,7 @@ export default class Calendar extends React.Component {
   }
   render() {
     return (
-      <Layout>
+      <div>
         <DayPicker
           month={new Date(2018, 6, 6)}
           todayButton="Go to Today"
@@ -107,7 +107,7 @@ export default class Calendar extends React.Component {
           className="Birthdays"
           renderDay={renderDay}
         />
-      </Layout>
+      </div>
     );
   }
 }
