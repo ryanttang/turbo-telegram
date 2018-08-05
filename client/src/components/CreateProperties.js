@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from './Layout';
-import { Button, Intent, InputGroup, Dialog, FileInput, MenuItem} from "@blueprintjs/core";
+import { Button, Intent, InputGroup, Dialog, FileInput, MenuItem, Menu} from "@blueprintjs/core";
 
   const CreateProperties = () => (
   <div>
   <h1>Create Properties</h1>
   <div class="grid-container1">
   <h4>Property Name:<InputGroup className="grid-item1"
-  leftIcon="tag"
+  leftIcon="home"
   placeholder="Please enter property name..."/></h4>
   <h4>Property Phone:<InputGroup className="grid-item1"
   leftIcon="phone"
@@ -16,13 +16,19 @@ import { Button, Intent, InputGroup, Dialog, FileInput, MenuItem} from "@bluepri
 
   <div class="grid-container1">
   <h4>Amount of Units:<InputGroup className="grid-item1"
-  leftIcon="numbered-list"
+  leftIcon="home"
   placeholder="Please enter total amount of units..."/></h4>
-  &nbsp;&nbsp;&nbsp;<h4>Assign Manager:<Button className="grid-item1"
-                        icon="film"
-                        rightIcon="caret-down"
-                        text="Please assign a manager to this property"
-                        disabled={false}/></h4>
+  <h4>Assign Manager:<Menu className="grid-item1">
+    <MenuItem text="Please assign a manager to this property" 
+      icon="numbered-list"
+      rightIcon="caret-down"
+      text="Please assign a manager to this property" >
+        <MenuItem text="Manager 1" />
+        <MenuItem text="Manager 2" />
+        <MenuItem text="Manager 3" />
+    </MenuItem>
+</Menu>
+                        </h4>
   </div>
 
 
