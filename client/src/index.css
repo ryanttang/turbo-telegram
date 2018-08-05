@@ -1,5 +1,81 @@
+html{
+  min-height:100%;/* make sure it is at least as tall as the viewport */
+  position:relative;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height:100%; /* force the BODY element to match the height of the HTML element */
 }
+
+.marginy {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.marginx {
+  margin-left: 1rem;
+  margin-right: 1rem;
+} 
+
+.page {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: [first] 230px [divider] 20px [content] auto;
+  margin-top: 1rem;
+  height: 550px;
+}
+
+.sidemenu {
+  grid-column: 1;
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 800px;
+}
+
+.grid-item1 {
+  width: 380px;
+}
+
+.grid-item2 {
+  width: 775px;
+}
+
+.content {
+  grid-column: 3;
+}
+
+.logo {
+  height:23px;
+  padding-top:0.5em;
+}
+
+.person {
+  position:absolute;
+  top:25%;
+  bottom:0;
+  left:72%;
+  overflow:hidden;
+  width: 300px;
+}
+
+#fullpage {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+  z-index:-1; /* Remove this line if it's not going to be a background! */
+}
+
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";

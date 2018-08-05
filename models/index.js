@@ -1,8 +1,8 @@
-const OrganizationLead = require('./OrganizationLead')
+const Lead = require('./Lead')
 const Manager = require('./Manager');
-const Property = require('./Property')
-const User = require('./User');
+const Property = require('./Property');
+const Worker = require('./Worker');
 
 module.exports = {
-    OrganizationLead, Manager, Property, User
-}
+  Lead, Manager, Property, Worker
+} 
