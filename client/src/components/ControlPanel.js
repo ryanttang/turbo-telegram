@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Button, Intent, InputGroup, Dialog, FileInput, MenuItem, Menu} from "@blueprintjs/core";
 import Layout from './Layout';
 
 // fake data generator
 const getItems = (count, offset = 0) =>
     Array.from({ length: count }, (v, k) => k).map(k => ({
-        id: `Worker-${k + offset}`,
-        content: `Worker ${k + offset}`
+        id: `Worker-${k + 1 + offset}`,
+        content: `Worker ${k + 1 + offset}`
     }));
 
 // a little function to help us with reordering the result
@@ -36,12 +37,12 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     return result;
 };
 
-const grid = 8;
+const grid = 5;
 
 const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
     userSelect: 'none',
-    padding: grid * 2,
+    padding: grid * 1,
     margin: `0 0 ${grid}px 0`,
 
     // change background colour if dragging
@@ -54,13 +55,13 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? 'lightblue' : 'lightgrey',
     padding: grid,
-    width: 250
+    width: 200
 });
 
 class ControlPanel extends Component {
     state = {
-        items: getItems(10),
-        selected: getItems(5, 10)
+        items: getItems(5),
+        selected: getItems(0, 0)
     };
 
     /**
@@ -116,9 +117,35 @@ class ControlPanel extends Component {
     // But in this example everything is just done in one place for simplicity
     render() {
         return (
+          <div>
+              <h1>Control Panel</h1>
+              <div>
+              <h5>Select a property:<Menu className="grid-item">
+                    <MenuItem
+                    icon="home"
+                    rightIcon="caret-down"
+                    text="Please select a property" >
+                        <MenuItem text="Property 1" />
+                        <MenuItem text="Property 2" />
+                        <MenuItem text="Property 3" />
+                    </MenuItem>
+                </Menu></h5><h5>Enter a date:<InputGroup className="grid-item"
+                    leftIcon="calendar"
+                    placeholder="Enter a cleaning date mm/dd/yyyy..."/>
+                
+                </h5><h5>Cleaning start time:<InputGroup className="grid-item"
+                    leftIcon="time"
+                    placeholder="Enter cleaning time..."/>
+                </h5>
+                </div>
+            
+            <br></br>
+            <h4>Drag and drop workers between lists to manage availability:</h4>
           <div id="dragdrop">
+            
             <DragDropContext onDragEnd={this.onDragEnd}>
-            <center><h4>Property 1<h4>
+            <div id="available">
+            <center><h4>Available workers<h4>
                 <Droppable droppableId="droppable">
                     {(provided, snapshot) => (
                         <div
@@ -146,8 +173,9 @@ class ControlPanel extends Component {
                             {provided.placeholder}
                         </div>
                     )}
-                </Droppable></h4></h4></center>
-                <center><h4>Property 2<h4>
+                </Droppable></h4></h4></center></div>
+                <div id="assigned">
+                <center><h4>Assigned workers<h4>
                 <Droppable droppableId="droppable2">
                     {(provided, snapshot) => (
                         <div
@@ -169,15 +197,26 @@ class ControlPanel extends Component {
                                             )}>
                                             {item.content}
                                         </div>
-                                    )}
+                                    )}                                
                                 </Draggable>
                             ))}
                             {provided.placeholder}
                         </div>
                     )}
-                </Droppable></h4></h4></center>
+                </Droppable>
+                </h4></h4></center></div>
             </DragDropContext>
             </div>
+                <div id="cleaning">
+                <center>
+                <h4>
+                    <Button>Submit</Button>
+                </h4>
+                </center>
+                </div>
+            </div>
+
+
         );
     }
 }
