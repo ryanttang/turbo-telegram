@@ -28,6 +28,7 @@
     "nodemon": "^1.18.3"
   },
   "devDependencies": {
-    "babel-watch": "^2.0.7"
+    "babel-watch": "^2.0.7",
+    "colors-cli": "^1.0.17"
   }
 }
