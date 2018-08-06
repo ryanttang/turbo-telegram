@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Sidemenu from './Sidemenu';
 import LoginModal from './LoginModal';
 
+import LoginStore from '../store/LoginStore';
+
 
 class Layout extends PureComponent {
   state = {
