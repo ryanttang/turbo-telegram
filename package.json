@@ -7,7 +7,8 @@
     "client": "cd client && yarn start",
     "watch": "nodemon ./bin/www",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "dev": "concurrently --kill-others-on-fail \"yarn watch\" \"yarn client\" "
+    "dev": "concurrently --kill-others-on-fail \"yarn watch\" \"yarn client\" ",
+    "seed": "node utils/seedLogin.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

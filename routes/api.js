@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/createuser', function(req, res, next) {
   const { username, password } = req.body;
-  // console.log(cl.x45.bold.underline(true, username), cl.green.xb34.underline(false, password));
   console.log(username, password);
   res.send(req.body);
 })
