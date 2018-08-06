@@ -5,6 +5,7 @@
   "dependencies": {
     "@blueprintjs/core": "^3.0.1",
     "@blueprintjs/datetime": "^3.0.0",
+    "@blueprintjs/docs-theme": "^3.0.1",
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
     "react-burger-menu": "^2.5.2",
