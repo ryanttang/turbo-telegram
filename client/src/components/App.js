@@ -14,6 +14,7 @@ import Calendars from './Calendars';
 import Home from './Home';
 import Layout from './Layout';
 import Managerdnd from './Managerdnd';
+import Assignmentdnd from './Assignmentdnd';
 import './index.css';
 
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
       <RouteWithLayout exact path="/calendar" component={Calendar} />
       <RouteWithLayout exact path="/calendars" component={Calendars} />
       <RouteWithLayout exact path="/managerdnd" component={Managerdnd} />
+      <RouteWithLayout exact path="/assignmentdnd" component={Assignmentdnd} />
     </div>
   </Router>
 )

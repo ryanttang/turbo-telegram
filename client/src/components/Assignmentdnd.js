@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import './index.css'
 import {Board} from 'react-trello'
 
-const data = require('./managers_data.json')
+
+const data = require('./assignments_data.json')
 
 const handleDragStart = (cardId, laneId) => {
     console.log('drag started')
@@ -17,7 +18,7 @@ const handleDragEnd = (cardId, sourceLaneId, targetLaneId) => {
     console.log(`targetLaneId: ${targetLaneId}`)
 }
 
-class Managerdnd extends Component {
+class Assignmentdnd extends Component {
     state = {boardData: {lanes: []}}
 
     setEventBus = eventBus => {
@@ -67,14 +68,14 @@ class Managerdnd extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <h3>Managers & Properties</h3>
+                    <h3>Employees & Assignments</h3>
                 </div>
                 <div className="App-intro">
                     <button onClick={this.completeCard} style={{margin: 5}}>
-                        Add Manager
+                        Add Employee
                     </button>
                     <button onClick={this.addCard} style={{margin: 5}}>
-                        Add Property
+                        Add Assignment
                     </button>
                     <Board
                         editable
@@ -88,13 +89,12 @@ class Managerdnd extends Component {
                         style={{backgroundColor: "#30404d"}} 
                         // onCardClick={onCardClick}
                         // onCardDelete={handleCardDelete}
-
-
                     />
+                  
                 </div>
             </div>
         )
     }
 }
 
-export default Managerdnd
+export default Assignmentdnd
