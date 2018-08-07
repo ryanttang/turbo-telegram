@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Dialog, Classes, Tooltip, Button, InputGroup } from '@blueprintjs/core';
+import { Dialog, Classes, Tooltip, Button, InputGroup, Toast } from '@blueprintjs/core';
 
 
 const LoginModal = observer(props =>
@@ -17,25 +17,24 @@ const LoginModal = observer(props =>
         <h2>Login</h2>
         <h4>Username:<InputGroup
           leftIcon="tag"
-          placeholder="Please enter your username..." 
+          placeholder="Please enter your username..."
           value={props.store.loginForm.username}
           onChange={props.store.updateValue}
           name="username"
         /></h4>
         <h4>Password:<InputGroup
           leftIcon="lock"
-          placeholder="Please enter your password..." 
+          placeholder="Please enter your password..."
           value={props.store.loginForm.password}
           onChange={props.store.updateValue}
-          name="password"/></h4>
+          name="password" /></h4>
         <Button onClick={props.store.checkCredentials}>Sign In</Button>
       </form>
     </div>
     <div className={Classes.DIALOG_FOOTER}>
       <div className={Classes.DIALOG_FOOTER_ACTIONS}>
-        <Tooltip content="This button is hooked up to close the dialog.">
-          <Button onClick={props.store.toggleModal}>Close</Button>
-        </Tooltip>
+        <Button onClick={props.store.toggleModal}>Close</Button>
+
 
       </div>
     </div>
