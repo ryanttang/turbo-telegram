@@ -3,7 +3,7 @@ import Layout from './Layout';
 
 const ControlPanel = ({ match }) => (
     <div>
-      <h3>Control Panel</h3>
+      <h1>Control Panel</h1>
     </div>
   )
 

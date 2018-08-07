@@ -8,12 +8,15 @@
     "@blueprintjs/docs-theme": "^3.0.1",
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
+    "react-beautiful-dnd": "^8.0.7",
     "react-burger-menu": "^2.5.2",
     "react-dazzle": "^1.4.0",
     "react-dom": "^16.4.1",
+    "react-dragula": "^1.1.17",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
-    "react-sidebar": "^2.3.2"
+    "react-sidebar": "^2.3.2",
+    "react-trello": "^1.32.2"
   },
   "scripts": {
     "start": "react-scripts start",

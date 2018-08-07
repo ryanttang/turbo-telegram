@@ -6,7 +6,8 @@ import Calendar from './Calendar';
 
 const Calendars = ({ match }) => (
     <div>
-      <h2>Property Schedule</h2>
+      <h1>Stats</h1>
+      {/* <h2>Property Schedule</h2>
       <ul>
         <li>
           <Link to={`${match.url}/viewassignments`}>
@@ -28,7 +29,7 @@ const Calendars = ({ match }) => (
       <Route path={`${match.path}/:calendarId`} component={Calendar}/>
       <Route exact path={match.path} render={() => (
         <h3>Please select a topic.</h3>
-      )}/>
+      )}/> */}
     </div>
   )
 

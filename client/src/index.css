@@ -35,8 +35,36 @@ body {
   grid-column: 1;
 }
 
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 800px;
+}
+
+.grid-item1 {
+  width: 380px;
+}
+
+.grid-item2 {
+  width: 775px;
+}
+
 .content {
   grid-column: 3;
+}
+
+.logo {
+  height:23px;
+  padding-top:0.5em;
+}
+
+.person {
+  position:absolute;
+  top:25%;
+  bottom:0;
+  left:72%;
+  overflow:hidden;
+  width: 300px;
 }
 
 #fullpage {

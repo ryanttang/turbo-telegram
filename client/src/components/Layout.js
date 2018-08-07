@@ -19,7 +19,8 @@ class Layout extends PureComponent {
       <Card className="bp3-dark" id="fullpage">
         <Navbar>
           <Navbar.Group align={Alignment.LEFT}>
-            <Navbar.Heading>Turbo-Telegram</Navbar.Heading>
+          
+            <Navbar.Heading><img class="logo" src="./logo1.png" />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
           </Navbar.Group>
           <Navbar.Group align={Alignment.RIGHT}>
             <Link to="/">
