@@ -16,7 +16,7 @@ class Layout extends Component {
         <Navbar>
           <Navbar.Group align={Alignment.LEFT}>
           
-            <Navbar.Heading><img className="logo" src="./logo1.png" />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
+            <Navbar.Heading><img className="logo" src="./logo1.png" alt='logo' />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
           </Navbar.Group>
           <Navbar.Group align={Alignment.RIGHT}>
             <Link to="/">

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card } from '@blueprintjs/core'
 import {
   BrowserRouter as Router,
   Route

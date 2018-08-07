@@ -1,8 +1,4 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom';
-import Layout from './Layout';
-
-import Calendar from './Calendar';
 
 const Calendars = ({ match }) => (
     <div>

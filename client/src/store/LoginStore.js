@@ -1,4 +1,5 @@
 import { decorate, observable, action } from 'mobx';
+import makeInspectable from 'mobx-devtools-mst';
 
 class Store {
   loggedIn = false;
@@ -36,5 +37,7 @@ decorate(Store, {
 })
 
 const loginStore = new Store();
+
+makeInspectable(loginStore);
 
 export default loginStore;
