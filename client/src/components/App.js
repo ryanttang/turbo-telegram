@@ -1,11 +1,9 @@
 import React from 'react'
-import { Card } from '@blueprintjs/core'
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 
-import Login from './Login';
 import ControlPanel from './ControlPanel';
 import CreateManagers from './CreateManagers';
 import CreateProperties from './CreateProperties';
@@ -21,7 +19,6 @@ const App = () => (
   <Router>
     <div>
       <RouteWithLayout exact path='/' component={Home} />
-      <RouteWithLayout exact path="/login" component={Login} />
       <RouteWithLayout path="/controlPanel" component={ControlPanel} />
       <RouteWithLayout path="/createManagers" component={CreateManagers} />
       <RouteWithLayout path="/createProperties" component={CreateProperties} />

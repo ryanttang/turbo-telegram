@@ -1,23 +1,14 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+
 import { Card, Elevation, Navbar, Button, Alignment } from '@blueprintjs/core';
 import { Link } from 'react-router-dom';
 import Sidemenu from './Sidemenu';
 import LoginModal from './LoginModal';
 
+import LoginStore from '../store/LoginStore';
 
-class Layout extends PureComponent {
-  state = {
-    showModal: false,
-    loggedIn: true
-  }
-  
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-  }
-
-  logOut = () => {
-    this.setState({loggedIn: false })
-  }
+class Layout extends Component {
 
   render() {
     return (
@@ -25,7 +16,7 @@ class Layout extends PureComponent {
         <Navbar>
           <Navbar.Group align={Alignment.LEFT}>
           
-            <Navbar.Heading><img class="logo" src="./logo1.png" />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
+            <Navbar.Heading><img className="logo" src="./logo1.png" alt='logo' />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
           </Navbar.Group>
           <Navbar.Group align={Alignment.RIGHT}>
             <Link to="/">
@@ -33,15 +24,15 @@ class Layout extends PureComponent {
             </Link>
             {/* Link goes nowhere but for continuity I wrapped the Button in a Link tag so it will appear blue just like the Home button.  */}
             { 
-              this.state.loggedIn ?
+              LoginStore.loggedIn ?
               <Link to="">
-              <Button className="bp3-minimal" onClick={this.logOut} icon="person" text="log-out" />
+              <Button className="bp3-minimal" onClick={LoginStore.logOut} icon="person" text="log-out" />
             </Link>
             : <Link to="">
-              <Button className="bp3-minimal" onClick={this.toggleModal} icon="person" text="Login" />
+              <Button className="bp3-minimal" onClick={LoginStore.toggleModal} icon="person" text="Login" />
             </Link>
             }
-              <LoginModal show={this.state.showModal} toggleModal={this.toggleModal}/>
+              <LoginModal store={LoginStore}/>
           </Navbar.Group>
         </Navbar>
         <div className="grid">
@@ -54,5 +45,7 @@ class Layout extends PureComponent {
     )
   }
 }
+
+Layout = observer(Layout);
 
 export default Layout;
