@@ -5,7 +5,6 @@ import {
   Route
 } from 'react-router-dom'
 
-import Login from './Login';
 import ControlPanel from './ControlPanel';
 import CreateManagers from './CreateManagers';
 import CreateProperties from './CreateProperties';

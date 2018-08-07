@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+
 import { Card, Elevation, Navbar, Button, Alignment } from '@blueprintjs/core';
 import { Link } from 'react-router-dom';
 import Sidemenu from './Sidemenu';
@@ -6,7 +8,7 @@ import LoginModal from './LoginModal';
 
 import LoginStore from '../store/LoginStore';
 
-class Layout extends PureComponent {
+class Layout extends Component {
 
   render() {
     return (
@@ -14,7 +16,7 @@ class Layout extends PureComponent {
         <Navbar>
           <Navbar.Group align={Alignment.LEFT}>
           
-            <Navbar.Heading><img class="logo" src="./logo1.png" />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
+            <Navbar.Heading><img className="logo" src="./logo1.png" />&nbsp;&nbsp;Turbo-Telegram</Navbar.Heading>
           </Navbar.Group>
           <Navbar.Group align={Alignment.RIGHT}>
             <Link to="/">
@@ -22,7 +24,7 @@ class Layout extends PureComponent {
             </Link>
             {/* Link goes nowhere but for continuity I wrapped the Button in a Link tag so it will appear blue just like the Home button.  */}
             { 
-              this.state.loggedIn ?
+              LoginStore.loggedIn ?
               <Link to="">
               <Button className="bp3-minimal" onClick={this.logOut} icon="person" text="log-out" />
             </Link>
@@ -30,7 +32,7 @@ class Layout extends PureComponent {
               <Button className="bp3-minimal" onClick={this.toggleModal} icon="person" text="Login" />
             </Link>
             }
-              <LoginModal show={this.state.showModal} toggleModal={this.toggleModal}/>
+              <LoginModal store={LoginStore}/>
           </Navbar.Group>
         </Navbar>
         <div className="grid">
@@ -43,5 +45,7 @@ class Layout extends PureComponent {
     )
   }
 }
+
+Layout = observer(Layout);
 
 export default Layout;
