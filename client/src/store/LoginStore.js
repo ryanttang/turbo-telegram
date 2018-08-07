@@ -6,20 +6,32 @@ class Store {
 
   showLoginModal = false;
 
+  loginForm = {
+    username: '',
+    password: ''
+  }
+
   credentials = {
     username: "bobby",
     password: "dallas"
   }
 
-  checkCredentials (username, password) {
-    if(username === this.credentials.username && password === this.credentials.password){
+  updateValue = (e) => {
+    e.preventDefault();
+    const {name, value} = e.target;
+    this.loginForm[name] = value;
+  }
+
+  checkCredentials = () => {
+    if(this.loginForm.username === this.credentials.username && this.loginForm.password === this.credentials.password){
       this.loggedIn = true;
+      this.showLoginModal = false;
     }
+  
   } 
   
-  toggleModal () {
+  toggleModal = () => {
     this.showLoginModal = !this.showLoginModal;
-    console.log('hi')
   }
 
   logOut = () => {
@@ -33,7 +45,9 @@ decorate(Store, {
   showLoginModal: observable,
   checkCredentials: action,
   toggleModal: action,
-  logOut: action
+  logOut: action,
+  loginForm: observable,
+  updateValue: action
 })
 
 const loginStore = new Store();

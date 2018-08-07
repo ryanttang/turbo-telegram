@@ -13,16 +13,23 @@ const LoginModal = observer(props =>
   >
 
     <div className={Classes.DIALOG_BODY}>
-      <div>
+      <form onSubmit={props.store.checkCredentials}>
         <h2>Login</h2>
         <h4>Username:<InputGroup
           leftIcon="tag"
-          placeholder="Please enter your username..." /></h4>
+          placeholder="Please enter your username..." 
+          value={props.store.loginForm.username}
+          onChange={props.store.updateValue}
+          name="username"
+        /></h4>
         <h4>Password:<InputGroup
           leftIcon="lock"
-          placeholder="Please enter your password..." /></h4>
-        <Button>Sign In</Button>
-      </div>
+          placeholder="Please enter your password..." 
+          value={props.store.loginForm.password}
+          onChange={props.store.updateValue}
+          name="password"/></h4>
+        <Button onClick={props.store.checkCredentials}>Sign In</Button>
+      </form>
     </div>
     <div className={Classes.DIALOG_FOOTER}>
       <div className={Classes.DIALOG_FOOTER_ACTIONS}>
@@ -35,4 +42,4 @@ const LoginModal = observer(props =>
   </Dialog>
 )
 
-export default observer(LoginModal);
+export default LoginModal;

@@ -26,10 +26,10 @@ class Layout extends Component {
             { 
               LoginStore.loggedIn ?
               <Link to="">
-              <Button className="bp3-minimal" onClick={this.logOut} icon="person" text="log-out" />
+              <Button className="bp3-minimal" onClick={LoginStore.logOut} icon="person" text="log-out" />
             </Link>
             : <Link to="">
-              <Button className="bp3-minimal" onClick={this.toggleModal} icon="person" text="Login" />
+              <Button className="bp3-minimal" onClick={LoginStore.toggleModal} icon="person" text="Login" />
             </Link>
             }
               <LoginModal store={LoginStore}/>
