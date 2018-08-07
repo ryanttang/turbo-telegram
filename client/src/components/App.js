@@ -21,7 +21,6 @@ const App = () => (
   <Router>
     <div>
       <RouteWithLayout exact path='/' component={Home} />
-      <RouteWithLayout exact path="/login" component={Login} />
       <RouteWithLayout path="/controlPanel" component={ControlPanel} />
       <RouteWithLayout path="/createManagers" component={CreateManagers} />
       <RouteWithLayout path="/createProperties" component={CreateProperties} />

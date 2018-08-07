@@ -6,20 +6,7 @@ import LoginModal from './LoginModal';
 
 import LoginStore from '../store/LoginStore';
 
-
 class Layout extends PureComponent {
-  state = {
-    showModal: false,
-    loggedIn: true
-  }
-  
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-  }
-
-  logOut = () => {
-    this.setState({loggedIn: false })
-  }
 
   render() {
     return (

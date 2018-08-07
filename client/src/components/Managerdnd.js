@@ -31,7 +31,7 @@ class Managerdnd extends Component {
 
     getBoard() {
         return new Promise(resolve => {
-            resolve(data)
+            resolve(this.props.store)
         })
     }
 
