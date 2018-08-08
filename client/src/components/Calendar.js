@@ -1,19 +1,4 @@
-// import React from 'react';
-
-
-
-// const Calendar = ({ match }) => (
-//     <Layout>
-//       <DatePicker />
-//       <h2>Calender</h2>
-//     </Layout>
-//   )
-
-// export default Calendar;
-
-
 import React from 'react';
-import Layout from './Layout';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 

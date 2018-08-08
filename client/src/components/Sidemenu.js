@@ -20,6 +20,16 @@ const routes = [
     text: 'Create Properties'
   },
   {
+    path: '/managerdnd',
+    icon: 'list',
+    text: 'Managers & Properties'
+  },
+  {
+    path: '/assignmentdnd',
+    icon: 'th-list',
+    text: 'Employees & Assignments'
+  },
+  {
     path: "/calendar",
     icon: "calendar",
     text: "Calendar"
