@@ -1,6 +1,16 @@
 import { decorate, observable, action } from 'mobx';
-import makeInspectable from 'mobx-devtools-mst';
 
+const postData = (data) => {
+  return fetch('/api/login', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .catch(error => console.error(`Fetch Error =\n`, error))
+}
 class Store {
   loggedIn = false;
 
@@ -8,8 +18,8 @@ class Store {
 
   // user vals go here
   loginForm = {
-    username: '',
-    password: ''
+    username: 'vasiliy',
+    password: 'hulin'
   }
 
   credentials = {
@@ -25,9 +35,10 @@ class Store {
   }
 
   // compare user input to credentials
-  checkCredentials = (e) => {
+  checkCredentials = async (e) => {
     e.preventDefault();
-    if (this.loginForm.username === this.credentials.username && this.loginForm.password === this.credentials.password) {
+    let response  = await postData(this.loginForm);
+    if (response.success) {
       this.loggedIn = true;
       this.showLoginModal = false;
       this.toasts.push({

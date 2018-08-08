@@ -16,9 +16,9 @@ router.post('/login', login)
 
 router.post('/createapt', createApartments)
 
-router.post('assignman', assignManager)
+router.post('/assignman', assignManager)
 
-router.get('managers', getManagers)
+router.get('/managers', getManagers)
 
 
 module.exports = router;

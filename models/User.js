@@ -18,5 +18,5 @@ const userSchema = new Schema({
   assigned: []
 });
 
-const Login = mongoose.model('user', loginSchema);
+const Login = mongoose.model('user', userSchema);
 module.exports = Login;

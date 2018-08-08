@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Dialog, Classes, Tooltip, Button, InputGroup } from '@blueprintjs/core';
+import { Dialog, Classes, Button, InputGroup } from '@blueprintjs/core';
 
 
 const LoginModal = observer(props =>
