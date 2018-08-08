@@ -3,32 +3,22 @@ var router = express.Router();
 const Login = require('../models/Login');
 const {
   createManagers,
-  createProperties,
+  createApartments,
   assignManager,
-  login
+  login,
+  getManagers
 } = require('../controllers')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-})
 
-router.post('/createuser', function(req, res, next) {
-  const { username, password } = req.body;
-  console.log(username, password);
-  res.send(req.body);
-})
+router.post('/createman', createManagers)
 
-router.post('/login', function(req, res, next) {
-  const { username, password } = req.body;
-    Login.find({username}, (err, user) => {
-      if(err) throw err;
-      password === user[0].password ?
-        res.send(true)
-        : res.json(false);
-    })
-  
-})
+router.post('/login', login)
+
+router.post('/createapt', createApartments)
+
+router.post('assignman', assignManager)
+
+router.get('managers', getManagers)
 
 
 module.exports = router;

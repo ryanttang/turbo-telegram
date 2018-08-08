@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Login = require('../models/Login');
+const User = require('../models/User');
 
 
 mongoose.connect('mongodb://localhost:27017/turbodb', {
@@ -12,7 +12,7 @@ db.once("open", function(callback) {
   console.log("Connection Succeeded");
 });
 
-const user = new Login ({
+const user = new User ({
   username: "bobby",
   password: "dallas"
 })

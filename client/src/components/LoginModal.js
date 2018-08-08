@@ -27,6 +27,7 @@ const LoginModal = observer(props =>
           placeholder="Please enter your password..."
           value={props.store.loginForm.password}
           onChange={props.store.updateValue}
+          type='password'
           name="password" /></h4>
         <Button onClick={props.store.checkCredentials}>Sign In</Button>
       </form>
