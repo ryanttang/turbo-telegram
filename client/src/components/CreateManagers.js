@@ -12,7 +12,9 @@ class CreateManagers extends Component {
     manager_password: "",
     manager_last_name: "",
     manager_phone: "",
-    manager_contact_method: ""
+    manager_contact_method: "",
+    manager_address_1: "",
+    manager_address_2: ""
   };
 
   updateValue = (e) => {
@@ -68,11 +70,11 @@ class CreateManagers extends Component {
         <h4>Address:<InputGroup className="grid-item2"
           leftIcon="geolocation"
           placeholder="Please enter manager address..."
-          value={this.state.property_address1} name='property_address1' onChange={this.updateValue}/></h4>
+          value={this.state.manager_address_1} name='manager_address_1' onChange={this.updateValue}/></h4>
         <h4>Address 2:<InputGroup className="grid-item2"
           leftIcon="geolocation"
           placeholder="Please enter manager address..."
-          value={this.state.property_address2} name='property_address2' onChange={this.updateValue}/></h4>
+          value={this.state.manager_address_2} name='manager_address_2' onChange={this.updateValue}/></h4>
 
           {/* The line below logs the current state to the console - this should be replaced by route to add this manager to the database */}
         <Button icon="refresh" onClick={() => { console.log(this.state) }}>Create</Button> 
