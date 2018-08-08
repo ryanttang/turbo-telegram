@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Dialog, Classes, Tooltip, Button, InputGroup, Toast } from '@blueprintjs/core';
+import { Dialog, Classes, Tooltip, Button, InputGroup } from '@blueprintjs/core';
 
 
 const LoginModal = observer(props =>
@@ -29,7 +29,7 @@ const LoginModal = observer(props =>
           onChange={props.store.updateValue}
           type='password'
           name="password" /></h4>
-        <Button onClick={props.store.checkCredentials}>Sign In</Button>
+        <Button type='submit' onClick={props.store.checkCredentials}>Sign In</Button>
       </form>
     </div>
     <div className={Classes.DIALOG_FOOTER}>
