@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const Login = require('../models/Login');
-
-const { Lead, Manager, Property, Worker } = require('../models');
-const c = (x, i) => c ? cl.x45.bold.underline(i) : cl.green.xb34.underline(i);
-
+const {
+  createManagers,
+  createProperties,
+  assignManager,
+  login
+} = require('../controllers')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
