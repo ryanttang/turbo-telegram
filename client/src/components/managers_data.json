@@ -9,89 +9,101 @@
         {
           "id": "Manager_1",
           "title": "ID#001",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
+          "label": "Manager",
+          "cardStyle": { "width": 100, "maxWidth": 100, "margin": "auto", "marginBottom": 5 },
           "description": "John Parma"
         },
         {
           "id": "Manager_2",
           "title": "ID#002",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
+          "label": "Manager",
+          "cardStyle": { "width": 100, "maxWidth": 100, "margin": "auto", "marginBottom": 5 },
           "description": "Billy Bacon"
         },
         {
           "id": "Manager_3",
           "title": "ID#003",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
+          "label": "Manager",
+          "cardStyle": { "width": 100, "maxWidth": 100, "margin": "auto", "marginBottom": 5 },
           "description": "Cynthia Mustard"
         },
         {
           "id": "Manager_4",
           "title": "ID#004",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
+          "label": "Manager",
+          "cardStyle": { "width": 100, "maxWidth": 100, "margin": "auto", "marginBottom": 5 },
           "description": "Maria Tortilla"
-        }
-      ]
-    },
-    {
-      "id": "PROPERTIES_1",
-      "title": "Green Property",
-      "label": "ID#01",
-      "style": {"width": 280},
-      "cards": [
+        },
         {
           "id": "Manager_5",
           "title": "ID#005",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
-          "description": "Susie Mayo"
-        }
-      ]
-    },
-    {
-      "id": "PROPERTIES_2",
-      "title": "Blue Property",
-      "label": "ID#02",
-      "style": {"width": 280},
-      "cards": []
-    },
-    {
-      "id": "PROPERTIES_3",
-      "title": "Orange Property",
-      "style": {"width": 280},
-      "label": "ID#03",
-      "cards": [
+          "label": "Manager",
+          "cardStyle": { "width": 100, "maxWidth": 100, "margin": "auto", "marginBottom": 5 },
+          "description": "Danny Omelet"
+        },
         {
           "id": "Manager_6",
           "title": "ID#006",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
-          "description": "Betty Menudo"
-        },
-        {
-          "id": "Manager_7",
-          "title": "ID#007",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
-          "description": "Jimmy Pasta"
+          "label": "Manager",
+          "cardStyle": { "width": 100, "maxWidth": 100, "margin": "auto", "marginBottom": 5 },
+          "description": "Betty Salsa"
         }
       ]
     },
     {
-      "id": "PROPERTIES_4",
-      "title": "Purple Property",
-      "style": {"width": 280},
-      "label": "ID#04",
+      "id": "PROPERTIES_MANAGED",
+      "title": "Properties & Managers",
+      "label": "Assignments",
+      "style": {"width": 420},
+      "cards": []
+    },
+    {
+      "id": "PROPERTIES_2",
+      "title": "Properties",
+      "label": "ID#02",
+      "style": {"width": 420},
       "cards": [
         {
-          "id": "Manager_8",
-          "title": "ID#008",
-          "label": "Property Manager",
-          "cardStyle": { "width": 270, "maxWidth": 270, "margin": "auto", "marginBottom": 5 },
-          "description": "Al Calzone"
+          "id": "Property_1",
+          "title": "ID#01",
+          "label": "Property",
+          "cardStyle": { "width": 400, "maxWidth": 400, "height": 70, "margin": "auto", "marginBottom": 5 },
+          "description": "Blue Property"
+        },
+        {
+          "id": "Property_2",
+          "title": "ID#02",
+          "label": "Property",
+          "cardStyle": { "width": 400, "maxWidth": 400, "height": 70, "margin": "auto", "marginBottom": 5 },
+          "description": "Green Property"
+        },
+        {
+          "id": "Property_3",
+          "title": "ID#03",
+          "label": "Property",
+          "cardStyle": { "width": 400, "maxWidth": 400, "height": 70, "margin": "auto", "marginBottom": 5 },
+          "description": "Purple Property"
+        },
+        {
+          "id": "Property_4",
+          "title": "ID#04",
+          "label": "Property",
+          "cardStyle": { "width": 400, "maxWidth": 400, "height": 70, "margin": "auto", "marginBottom": 5 },
+          "description": "Orange Property"
+        },
+        {
+          "id": "Property_5",
+          "title": "ID#05",
+          "label": "Property",
+          "cardStyle": { "width": 400, "maxWidth": 400, "height": 70, "margin": "auto", "marginBottom": 5 },
+          "description": "Brown Property"
+        },
+        {
+          "id": "Property_6",
+          "title": "ID#06",
+          "label": "Property",
+          "cardStyle": { "width": 400, "maxWidth": 400, "height": 70, "margin": "auto", "marginBottom": 5 },
+          "description": "Red Property"
         }
       ]
     }
