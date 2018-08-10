@@ -20,5 +20,5 @@ const user = new User ({
 user.save(err => {
   console.log('user saved');
   err && console.error(err);
+  mongoose.connection.close()
 })
-
