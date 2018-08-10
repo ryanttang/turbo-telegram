@@ -44,15 +44,20 @@ const login = (req, res) => {
   console.log(username, password);
   User.find({ username }, (err, user) => {
     console.log(user);
-    if (err) throw err;
-    try {
-      password === user[0].password ?
-        res.json({success: true})
-        : res.json({success: false});
-    } catch (err) {
-      res.send('not found')
+    if (!user[0]) {
+      res.json({ success: false });
+    } else {
+      // if (err) throw err;
+      try {
+        password === user[0].password ?
+          res.json({ success: true })
+          : res.json({ success: false });
+      } catch (err) {
+        res.send('not found')
+      }
     }
   })
+
 
 }
 
