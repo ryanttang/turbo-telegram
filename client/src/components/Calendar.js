@@ -25,7 +25,6 @@ const birthdays = {
   22: ['Maria', 'Luigi'],
   25: ['Simone'],
   26: ['Marta'],
-  30: ['Lil Pump'],
 };
 
 

@@ -39,7 +39,8 @@ class Managerdnd extends Component {
         this.state.eventBus.publish({
             type: 'ADD_CARD',
             laneId: 'MANAGERS',
-            card: {id: 'Manager_X', title: 'ID#XXX', label: 'Property Manager', description: 'Someone Somebody'}
+            card: {id: 'Manager_X', title: 'ID#XXX', label: 'Manager', description: 'Someone Somebody'},
+            cardStyle: { width: 100 }
             
         })
         // this.state.eventBus.publish({type: 'REMOVE_CARD', laneId: 'MANAGERS', cardId: 'Manager_X'})
@@ -48,8 +49,9 @@ class Managerdnd extends Component {
     addCard = () => {
         this.state.eventBus.publish({
             type: 'ADD_CARD',
-            laneId: 'BLOCKED',
-            card: {id: 'Ec2Error', title: 'EC2 Instance Down', label: '30 mins', description: 'Main EC2 instance down'}
+            laneId: 'PROPERTIES_2',
+            card: {id: 'X_Property', title: 'ID#XX', label: 'Property', description: 'New Property'},
+            style: { width: '320' }
         })
     }
 

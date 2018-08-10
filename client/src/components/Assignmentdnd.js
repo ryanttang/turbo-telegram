@@ -39,8 +39,8 @@ class Assignmentdnd extends Component {
     completeCard = () => {
         this.state.eventBus.publish({
             type: 'ADD_CARD',
-            laneId: 'MANAGERS',
-            card: {id: 'Manager_X', title: 'ID#XXX', label: 'Property Manager', description: 'Someone Somebody'}
+            laneId: 'EMPLOYEES',
+            card: {id: 'Employee_X', title: 'ID#XXXX', label: 'Service', description: 'Someone Somebody'}
             
         })
         // this.state.eventBus.publish({type: 'REMOVE_CARD', laneId: 'MANAGERS', cardId: 'Manager_X'})
@@ -74,9 +74,9 @@ class Assignmentdnd extends Component {
                     <button onClick={this.completeCard} style={{margin: 5}}>
                         Add Employee
                     </button>
-                    <button onClick={this.addCard} style={{margin: 5}}>
+                    {/* <button onClick={this.addCard} style={{margin: 5}}>
                         Add Assignment
-                    </button>
+                    </button> */}
                     <Board
                         editable
 						onCardAdd={this.handleCardAdd}
