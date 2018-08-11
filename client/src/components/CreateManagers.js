@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { observer } from 'mobx-react'
-import Layout from './Layout';
-import { Button, Intent, InputGroup, Dialog, FileInput, MenuItem, Menu, Popover } from "@blueprintjs/core";
+import { Button, InputGroup } from "@blueprintjs/core";
 
 import managerStore from '../store/ManagersStore'
 
@@ -45,7 +44,7 @@ class CreateManagers extends Component {
               value={managerStore.form.contact_method} name='contact_method' onChange={managerStore.updateValue} /></h4>
           </div>
           <div className="image">
-            <h4><img src="./person.png" width="180" height="180" />
+            <h4><img src="./person.png" width="180" height="180" alt="person placeholder"/>
               {/* <FileInput id="loadimage" disabled={false} text="Choose file..." /> */}
             </h4>
           </div>

@@ -11,7 +11,6 @@
     "seed": "node utils/seedLogin.js"
   },
   "dependencies": {
-    "@blueprintjs/docs-theme": "^3.0.1",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
@@ -24,7 +23,6 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
     "mongoose": "^5.2.5",
     "morgan": "~1.9.0",
     "nodemon": "^1.18.3"

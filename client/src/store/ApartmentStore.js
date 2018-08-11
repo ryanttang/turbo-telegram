@@ -2,7 +2,7 @@ import { decorate, observable, action } from 'mobx';
 import LoginStore from './LoginStore';
 
 const postData = (data) => {
-  return fetch('/api/createman', {
+  return fetch('/api/createapt', {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -15,14 +15,12 @@ const postData = (data) => {
 class Store {
 
   form = {
-    first_name: "john",
-    username: "aaaajohn@gmail.com",
-    password: "hgreegreenello",
-    last_name: "Green",
-    phone: "8183338888",
-    contact_method: "ceel",
-    address_1: "81844 Albertson",
-    address_2: "California CA"
+    property_name: "",
+    property_units: "",
+    property_phone: "",
+    property_manager: "Please select a manager for this property",
+    property_address1: "",
+    property_address2: ""
   };
 
   updateValue = (e) => {
@@ -30,17 +28,17 @@ class Store {
     this.form[name] = value;
   }
 
-  createManager = async (e) => {
+  createApt = async (e) => {
     let response = await postData(this.form);
-    if (!response) {
+    if(!response) {
       LoginStore.addToast('fail', "Server Error")
     } else {
       if (response.success) {
         console.log(response)
-        LoginStore.addToast('win', "Manager Created")
+        LoginStore.addToast('win', "Apartment Created")
       } else {
         console.log(response)
-        LoginStore.addToast('fail', "Manager Not Created")
+        LoginStore.addToast('fail', "Server Error")
       }
     }
   }
@@ -48,12 +46,12 @@ class Store {
 }
 
 decorate(Store, {
-  createManager: action,
+  createApt: action,
   form: observable,
   updateValue: action
 })
 
-const managerStore = new Store();
+const aptStore = new Store();
 
 
-export default managerStore;
+export default aptStore;

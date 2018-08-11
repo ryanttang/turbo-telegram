@@ -47,8 +47,8 @@ class Layout extends Component {
             <Toaster position={Position.BOTTOM} canEscapeKeyClear	>
             {toasts.map(toast => 
               toast.success 
-              ? <Toast timeout message="Login Successful" intent={Intent.SUCCESS} />
-              : <Toast timeout message="Login Failed" intent={Intent.DANGER} />
+              ? <Toast timeout message={toast.text} intent={Intent.SUCCESS} />
+              : <Toast timeout message={toast.text} intent={Intent.DANGER} />
             )}
             </Toaster>
           </Navbar.Group>

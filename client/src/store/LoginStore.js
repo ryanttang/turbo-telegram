@@ -41,9 +41,9 @@ class Store {
     if (response.success) {
       this.loggedIn = true;
       this.showLoginModal = false;
-      this.addToast('win')
+      this.addToast('win', "Login Successful")
     } else {
-      this.addToast('fail')
+      this.addToast('fail', "Login failed")
     }
   }
 
@@ -59,8 +59,8 @@ class Store {
     this.loggedIn = false;
   }
 
-  addToast = (intent) => {
-    intent === 'win' ? this.toasts.push({success: true}) : this.toasts.push({success: false})
+  addToast = (intent, text) => {
+    intent === 'win' ? this.toasts.push({success: true, text: text }) : this.toasts.push({success: false, text: text})
     setTimeout(() => this.toasts = [], 2000)
   }
 
