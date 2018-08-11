@@ -12,6 +12,10 @@ db.once("open", function(callback) {
   console.log("Connection Succeeded");
 });
 
+User.remove({}, function(err) { 
+  console.log('collection removed') 
+});
+
 const user = new User ({
   username: "bobby",
   password: "dallas"
