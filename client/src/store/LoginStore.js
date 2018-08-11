@@ -12,7 +12,7 @@ const postData = (data) => {
   .catch(error => console.error(`Fetch Error =\n`, error))
 }
 class Store {
-  loggedIn = false;
+  loggedIn = true;
 
   showLoginModal = false;
 
@@ -41,15 +41,9 @@ class Store {
     if (response.success) {
       this.loggedIn = true;
       this.showLoginModal = false;
-      this.toasts.push({
-        success: true
-      })
-      setTimeout(() => this.toasts = [], 5000)
+      this.addToast('win')
     } else {
-      this.toasts.push({
-        success: false
-      })
-      setTimeout(() => this.toasts = [], 2000)
+      this.addToast('fail')
     }
   }
 
@@ -65,6 +59,11 @@ class Store {
     this.loggedIn = false;
   }
 
+  addToast = (intent) => {
+    intent === 'win' ? this.toasts.push({success: true}) : this.toasts.push({success: false})
+    setTimeout(() => this.toasts = [], 2000)
+  }
+
   toasts = []
 
 }
@@ -77,7 +76,8 @@ decorate(Store, {
   logOut: action,
   loginForm: observable,
   updateValue: action,
-  toasts: observable
+  toasts: observable,
+  addToast: action
 })
 
 const loginStore = new Store();

@@ -36,10 +36,13 @@ body {
   margin: 0;
 }
 
+<<<<<<< HEAD
 .Property {
   width: 320;
 }
 
+=======
+>>>>>>> origin/development_rafa2
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

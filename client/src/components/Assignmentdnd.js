@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './index.css'
-import {Board} from 'react-trello'
+import { Board } from 'react-trello'
 
 
 const data = require('./assignments_data.json')
@@ -19,15 +19,15 @@ const handleDragEnd = (cardId, sourceLaneId, targetLaneId) => {
 }
 
 class Assignmentdnd extends Component {
-    state = {boardData: {lanes: []}}
+    state = { boardData: { lanes: [] } }
 
     setEventBus = eventBus => {
-        this.setState({eventBus})
+        this.setState({ eventBus })
     }
 
     async componentWillMount() {
         const response = await this.getBoard()
-        this.setState({boardData: response})
+        this.setState({ boardData: response })
     }
 
     getBoard() {
@@ -40,8 +40,8 @@ class Assignmentdnd extends Component {
         this.state.eventBus.publish({
             type: 'ADD_CARD',
             laneId: 'EMPLOYEES',
-            card: {id: 'Employee_X', title: 'ID#XXXX', label: 'Service', description: 'Someone Somebody'}
-            
+            card: { id: 'Employee_X', title: 'ID#XXXX', label: 'Service', description: 'Someone Somebody' }
+
         })
         // this.state.eventBus.publish({type: 'REMOVE_CARD', laneId: 'MANAGERS', cardId: 'Manager_X'})
     }
@@ -50,7 +50,7 @@ class Assignmentdnd extends Component {
         this.state.eventBus.publish({
             type: 'ADD_CARD',
             laneId: 'BLOCKED',
-            card: {id: 'Ec2Error', title: 'EC2 Instance Down', label: '30 mins', description: 'Main EC2 instance down'}
+            card: { id: 'Ec2Error', title: 'EC2 Instance Down', label: '30 mins', description: 'Main EC2 instance down' }
         })
     }
 
@@ -59,10 +59,10 @@ class Assignmentdnd extends Component {
         console.log(nextData)
     }
 
-	handleCardAdd = (card, laneId) => {
-		console.log(`New card added to lane ${laneId}`)
-		console.dir(card)
-	}
+    handleCardAdd = (card, laneId) => {
+        console.log(`New card added to lane ${laneId}`)
+        console.dir(card)
+    }
 
     render() {
         return (
@@ -71,7 +71,7 @@ class Assignmentdnd extends Component {
                     <h3>Employees & Assignments</h3>
                 </div>
                 <div className="App-intro">
-                    <button onClick={this.completeCard} style={{margin: 5}}>
+                    <button onClick={this.completeCard} style={{ margin: 5 }}>
                         Add Employee
                     </button>
                     {/* <button onClick={this.addCard} style={{margin: 5}}>
@@ -79,18 +79,18 @@ class Assignmentdnd extends Component {
                     </button> */}
                     <Board
                         editable
-						onCardAdd={this.handleCardAdd}
+                        onCardAdd={this.handleCardAdd}
                         data={this.state.boardData}
                         draggable
                         onDataChange={this.shouldReceiveNewData}
                         eventBusHandle={this.setEventBus}
                         handleDragStart={handleDragStart}
                         handleDragEnd={handleDragEnd}
-                        style={{backgroundColor: "#30404d"}} 
-                        // onCardClick={onCardClick}
-                        // onCardDelete={handleCardDelete}
+                        style={{ backgroundColor: "#30404d" }}
+                    // onCardClick={onCardClick}
+                    // onCardDelete={handleCardDelete}
                     />
-                  
+
                 </div>
             </div>
         )

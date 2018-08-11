@@ -14,6 +14,14 @@ const userSchema = new Schema({
     exclude: true,
     allowOnUpdate: false
   },
+
+  first_name: String,
+  last_name: String,
+  phone: String,
+  contact_method: String,
+  address_1: String,
+  address_2: String,
+
   role: [],
   assigned: []
 });

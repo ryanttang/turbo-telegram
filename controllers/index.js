@@ -1,17 +1,28 @@
 const { User, Property } = require('../models');
 
 const createManagers = (req, res) => {
+<<<<<<< HEAD
   console.log(req.body);
   const {
     username, password
   } = req.body;
   User.create({ username, password, role: ['manager'] }, (err, manager) => {
+=======
+  console.log("blehhhhhhhhhhhh")
+  console.log({...req.body})
+  User.create({ ...req.body  }, (err, manager) => {
+    console.log(manager)
+>>>>>>> origin/development_rafa2
     if (err) {
       res.send(err)
     } else {
       res.send(`${manager._id} @ ${manager.username} has been created`)
     }
   })
+<<<<<<< HEAD
+=======
+  
+>>>>>>> origin/development_rafa2
 }
 
 const createApartments = (req, res) => {
@@ -44,6 +55,7 @@ const login = (req, res) => {
   console.log(username, password);
   User.find({ username }, (err, user) => {
     console.log(user);
+<<<<<<< HEAD
     if (!user[0]) {
       res.json({ success: false });
     } else {
@@ -59,6 +71,18 @@ const login = (req, res) => {
   })
 
 
+=======
+    if (err) throw err;
+    try {
+      password === user[0].password ?
+        res.json({success: true})
+        : res.json({success: false});
+    } catch (err) {
+      res.send('not found')
+    }
+  })
+
+>>>>>>> origin/development_rafa2
 }
 
 module.exports = {
