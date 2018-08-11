@@ -22,7 +22,7 @@ const user = new User ({
 })
 
 user.save(err => {
-  console.log('user saved');
   err && console.error(err);
+  console.log('user saved');
   mongoose.connection.close()
 })
