@@ -31,9 +31,14 @@ const assignManager = (req, res) => {
 }
 
 const getManagers = (req, res) => {
-  User.find({ role: { "$in": ["manager"] } }, (err, list) => {
-    console.log(list);
+  User.find({ role: "manager" }, (err, list) => {
     res.send(list)
+  })
+}
+
+const getApts = (req, res) => {
+  Property.find({}, (err, apts) => {
+    res.send(apts);
   })
 }
 
@@ -60,5 +65,6 @@ module.exports = {
   createApartments,
   assignManager,
   login,
-  getManagers
+  getManagers,
+  getApts
 }

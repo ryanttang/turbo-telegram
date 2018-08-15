@@ -5,7 +5,8 @@ const {
   createApartments,
   assignManager,
   login,
-  getManagers
+  getManagers,
+  getApts
 } = require('../controllers')
 
 router.post('/createman', createManagers)
@@ -16,7 +17,8 @@ router.post('/createapt', createApartments)
 
 router.post('/assignman', assignManager)
 
-router.get('/managers', getManagers)
+router.get('/getmanagers', getManagers)
+router.get('/getapts', getApts)
 
 
 module.exports = router;
