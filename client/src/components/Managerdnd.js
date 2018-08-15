@@ -1,100 +1,208 @@
-import React, {Component} from 'react'
-import './index.css'
-import {Board} from 'react-trello'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { Button } from "@blueprintjs/core";
 
-const data = require('./managers_data.json')
+// fake data generator
+const getItems = (count, offset = 0) =>
+  Array.from({ length: count }, (v, k) => k).map(k => ({
+    id: `Manager-${k + offset}`,
+    content: `Manager: ${k + offset} | ID#: ${Math.round(Math.random() * 10000)}`,
+    color: '#2a3844'
+  }))
 
-const handleDragStart = (cardId, laneId) => {
-    console.log('drag started')
-    console.log(`cardId: ${cardId}`)
-    console.log(`laneId: ${laneId}`)
+  const getProperties = (count, offset = 0) =>
+  Array.from({ length: count }, (v, k) => k).map(k => ({
+    id: `Property-${k + offset}`,
+    content: `PROPERTY: ${k + offset} | ID#: ${Math.round(Math.random() * 100)}  LOCATION: ${Math.round(Math.random() * 100)} North South St`,
+    color: Math.random () > 0.75 ? 'purple': Math.random() > 0.5 ? 'darkgreen' : Math.random() > 0.25 ? 'orange' : 'skyblue',
+  }))
+
+// a little function to help us with reordering the result
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list)
+  const [removed] = result.splice(startIndex, 1)
+  result.splice(endIndex, 0, removed)
+  return result
 }
 
-const handleDragEnd = (cardId, sourceLaneId, targetLaneId) => {
-    console.log('drag ended')
-    console.log(`cardId: ${cardId}`)
-    console.log(`sourceLaneId: ${sourceLaneId}`)
-    console.log(`targetLaneId: ${targetLaneId}`)
+/**
+ * Moves an item from one list to another list.
+ */
+const move = (source, destination, droppableSource, droppableDestination) => {
+  const sourceClone = Array.from(source)
+  const destClone = Array.from(destination)
+  const [removed] = sourceClone.splice(droppableSource.index, 1)
+
+  destClone.splice(droppableDestination.index, 0, removed)
+
+  const result = {}
+  result[droppableSource.droppableId] = sourceClone
+  result[droppableDestination.droppableId] = destClone
+
+  return result
 }
+
+const grid = 4
+
+const getItemStyle = (isDragging, draggableStyle) => ({
+  // some basic styles to make the items look a bit nicer
+  userSelect: 'none',
+  padding: grid * 2,
+  margin: `0 0 ${grid}px 0`,
+  
+
+  // change background colour if dragging
+  background: isDragging ? 'lightgreen' : '2a3844',
+
+  // styles we need to apply on draggables
+  ...draggableStyle
+})
+
+const getListStyle = isDraggingOver => ({
+  background: isDraggingOver ? 'lightblue' : '#eee',
+  padding: grid,
+  margin: '7px',
+  width: 220,
+  background: '#2a3844'
+})
 
 class Managerdnd extends Component {
-    state = {boardData: {lanes: []}}
+  state = {
+    list1: getItems(5,1),
+    list2: getItems(4, 6),
+    list3: getProperties(9, 1)
+  }
 
-    setEventBus = eventBus => {
-        this.setState({eventBus})
+  /**
+   * A semi-generic way to handle multiple lists. Matches
+   * the IDs of the droppable container to the names of the
+   * source arrays stored in the state.
+   */
+  droppableIds = {
+    droppable1: 'list1',
+    droppable2: 'list2',
+    droppable3: 'list3'
+  }
+
+  getList = id => this.state[this.droppableIds[id]]
+
+  onDragEnd = result => {
+    const { source, destination } = result
+
+    // dropped outside the list
+    if (!destination) { return }
+
+    if (source.droppableId === destination.droppableId) {
+      const items = reorder(
+        this.getList(source.droppableId),
+        source.index,
+        destination.index
+      )
+
+      let copiedState = Object.assign({}, this.state)
+
+      if (source.droppableId === 'droppable1') {
+        copiedState.list1 = items
+      } else if (source.droppableId === 'droppable2') {
+        copiedState.list2 = items
+      } else if (source.droppableId === 'droppable3') {
+        copiedState.list3 = items
+      }
+
+      this.setState(copiedState)
+    } else {
+      const result = move(
+        this.getList(source.droppableId),
+        this.getList(destination.droppableId),
+        source,
+        destination
+      )
+
+      console.warn('result', result)
+      this.setState({
+        list1: result.droppable1 ? result.droppable1 : this.state.list1,
+        list2: result.droppable2 ? result.droppable2 : this.state.list2,
+        list3: result.droppable3 ? result.droppable3 : this.state.list3
+      })
     }
+  }
 
-    async componentWillMount() {
-        const response = await this.getBoard()
-        this.setState({boardData: response})
-    }
+  // Normally you would want to split things out into separate components.
+  // But in this example everything is just done in one place for simplicity
+  render() {
+    const lists = [
+      {
+        droppableId: 'droppable1',
+        listId: 'list1',
+        title: 'Managers A'
+      },
+      {
+        droppableId: 'droppable2',
+        listId: 'list2',
+        title: 'Managers B'
+      },
+      {
+        droppableId: 'droppable3',
+        listId: 'list3',
+        title: 'Properties'
+      },
+    ]
+    return (
+      <div style={{ display: 'flex'}}>
+      <Button>Save</Button>
+        <DragDropContext onDragEnd={this.onDragEnd}>
 
-    getBoard() {
-        return new Promise(resolve => {
-            resolve(data)
-        })
-    }
-
-    completeCard = () => {
-        this.state.eventBus.publish({
-            type: 'ADD_CARD',
-            laneId: 'MANAGERS',
-            card: {id: 'Manager_X', title: 'ID#XXX', label: 'Property Manager', description: 'Someone Somebody'}
-            
-        })
-        // this.state.eventBus.publish({type: 'REMOVE_CARD', laneId: 'MANAGERS', cardId: 'Manager_X'})
-    }
-
-    addCard = () => {
-        this.state.eventBus.publish({
-            type: 'ADD_CARD',
-            laneId: 'BLOCKED',
-            card: {id: 'Ec2Error', title: 'EC2 Instance Down', label: '30 mins', description: 'Main EC2 instance down'}
-        })
-    }
-
-    shouldReceiveNewData = nextData => {
-        console.log('New card has been added')
-        console.log(nextData)
-    }
-
-	handleCardAdd = (card, laneId) => {
-		console.log(`New card added to lane ${laneId}`)
-		console.dir(card)
-	}
-
-    render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <h3>Managers & Properties</h3>
+          {lists.map((list, listIndex) =>
+            <Droppable key={'list-droppable-' + listIndex} droppableId={list.droppableId}>
+              {(provided, snapshot) => (
+                <div
+                  ref={provided.innerRef}
+                  style={getListStyle(snapshot.isDraggingOver)}>
+                  <h4>
+                    {list.title}
+                  </h4>
+                  {this.state[list.listId] && this.state[list.listId].map((item, index) => (
+                    <Draggable
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}>
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          { ...provided.draggableProps }
+                          { ...provided.dragHandleProps }
+                          style={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                          )}>
+                          <div style={{ background: item.color }}>
+                            {item.content}
+                          </div>
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                  <Button>Edit Cards</Button>
                 </div>
-                <div className="App-intro">
-                    <button onClick={this.completeCard} style={{margin: 5}}>
-                        Add Manager
-                    </button>
-                    <button onClick={this.addCard} style={{margin: 5}}>
-                        Add Property
-                    </button>
-                    <Board
-                        editable
-						onCardAdd={this.handleCardAdd}
-                        data={this.state.boardData}
-                        draggable
-                        onDataChange={this.shouldReceiveNewData}
-                        eventBusHandle={this.setEventBus}
-                        handleDragStart={handleDragStart}
-                        handleDragEnd={handleDragEnd}
-                        style={{backgroundColor: "#30404d"}} 
-                        // onCardClick={onCardClick}
-                        // onCardDelete={handleCardDelete}
-
-
-                    />
-                </div>
-            </div>
-        )
-    }
+              )}
+            </Droppable>
+          )}         
+        </DragDropContext>
+          <ul><br />
+          <b>Purple:</b> Maintenance Required
+          <br />
+          <b>Orange:</b> Cleaning Required
+          <br />
+          <b>Blue:</b> Attention Required
+          <br />
+          <b>Green:</b> Good 
+          <br />
+          </ul> 
+     </div>
+    )
+  }
 }
 
 export default Managerdnd

@@ -1182,6 +1182,10 @@ color-name@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.1.tgz#4b1415304cf50028ea81643643bd82ea05803689"
 
+colors-cli@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/colors-cli/-/colors-cli-1.0.17.tgz#701efee5e82daf79d58a94655d0da4b35d5b2884"
+
 commander@2.6.0, commander@~2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.6.0.tgz#9df7e52fb2a0cb0fb89058ee80c3104225f37e1d"

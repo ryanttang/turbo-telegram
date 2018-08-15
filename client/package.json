@@ -7,7 +7,7 @@
     "@blueprintjs/datetime": "^3.0.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
-    "react-beautiful-dnd": "^8.0.7",
+    "react-beautiful-dnd": "^9.0.0",
     "react-burger-menu": "^2.5.2",
     "react-dazzle": "^1.4.0",
     "react-dom": "^16.4.1",
