@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const Login = require('../models/Login');
 const {
   createManagers,
   createApartments,
@@ -8,7 +7,6 @@ const {
   login,
   getManagers
 } = require('../controllers')
-
 
 router.post('/createman', createManagers)
 

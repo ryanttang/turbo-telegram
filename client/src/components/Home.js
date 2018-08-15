@@ -1,8 +1,9 @@
 import React from 'react'
+import { Spinner, Intent } from '@blueprintjs/core'
 
 const Home = (props) =>
   <div>
-    <img src="./logo2.png" width="500" alt="main logo" />
+    <Spinner intent={Intent.DANGER} size={200} />
   </div>
 
 

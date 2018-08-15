@@ -1,11 +1,10 @@
-const { Lead, Manager, Property, Worker } = require('../models');
+const { User, Property, Worker } = require('../models');
 const faker = require('faker');
 const date = require('date.js');
 
 const colors = require('colors');
 
-
-const seeder = require('mongoose-seeder');
+// const seeder = require('mongoose-seeder');
 
 const generateLeads = (iterations) => {
   let n = iterations;
@@ -32,14 +31,12 @@ const generateManagers = (iterations) => {
   let data = []
   while (n > 0) {
     let lead = {
-      fname: faker.name.firstName(),
-      lname: faker.name.lastName(),
       username: faker.internet.userName(),
       password: faker.internet.password(),
-      email: faker.internet.email(),
+      first_name: faker.name.firstName(),
+      last_name: faker.name.lastName(),
       phone: faker.phone.phoneNumber(),
-      workers: [],
-      properties: [],
+      role: 'manager'
     }
     data.push(lead)
     n--;
@@ -53,6 +50,7 @@ const generateProperties = (iterations) => {
   let today = new Date()
   while (n > 0) {
     let lead = {
+      title: n,
       address: `${faker.address.streetAddress()} ${faker.address.streetName()} ${faker.address.city()}, ${faker.address.zipCode()}`,
       super: `${faker.name.firstName()} ${faker.name.lastName()}`,
       pointOfContact: `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -132,8 +130,20 @@ const data =  [
     'documents': [...workers]
   },
 ];
+const genTenMan = () => User.insertMany(generateManagers(10), (err, docs) => {
+  if(err) throw(err);
+  console.log('10 managers created'.bgYellow);
+})
 
+const gen25Apt = () => Property.insertMany(generateProperties(25), (err, docs) =>{
+  if(err) throw(err);
+  console.log('25 properties created'.bgCyan);
+})
 
+module.exports = {
+  genTenMan,
+  gen25Apt
+}
 
 /*
 seeder.connect('mongodb://localhost/turbodb', function () {
@@ -150,5 +160,3 @@ seeder.connect('mongodb://localhost/turbodb', function () {
   })
 })
 */
-
-seedData(20);

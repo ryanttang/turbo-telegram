@@ -12,7 +12,7 @@ const postData = (data) => {
   .catch(error => console.error(`Fetch Error =\n`, error))
 }
 class Store {
-  loggedIn = true;
+  loggedIn = false;
 
   showLoginModal = false;
 

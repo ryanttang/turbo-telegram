@@ -6,7 +6,8 @@ const propertySchema = new Schema({
     address:  String,
     super: String,
     pointOfContact: String,
-    calendar: String
+    calendar: String,
+    calendarDates: Array
   });
  
   const Property = mongoose.model('Property', propertySchema)

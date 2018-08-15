@@ -22,8 +22,8 @@ const userSchema = new Schema({
   address_1: String,
   address_2: String,
 
-  role: [],
-  assigned: []
+  role: '', // can have "manager", "staff", "boss" roles
+  assigned: {} // if role = boss here we can pass an object that contains the properties and managers, if role = manager or worker we can pass apts in there, if manager we can allow him to create new worker profiles and generate pages. 
 });
 
 const Login = mongoose.model('user', userSchema);
