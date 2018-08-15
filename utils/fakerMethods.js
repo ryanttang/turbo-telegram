@@ -26,7 +26,7 @@ const generateLeads = (iterations) => {
   return data;
 }
 
-const generateManagers = (iterations) => {
+const generateManagers = (iterations, role) => {
   let n = iterations;
   let data = []
   while (n > 0) {
@@ -36,7 +36,7 @@ const generateManagers = (iterations) => {
       first_name: faker.name.firstName(),
       last_name: faker.name.lastName(),
       phone: faker.phone.phoneNumber(),
-      role: 'manager'
+      role: role
     }
     data.push(lead)
     n--;
@@ -130,9 +130,9 @@ const data =  [
     'documents': [...workers]
   },
 ];
-const genTenMan = () => User.insertMany(generateManagers(10), (err, docs) => {
+const genPerson = (quantity, role) => User.insertMany(generateManagers(quantity, role), (err, docs) => {
   if(err) throw(err);
-  console.log('10 managers created'.bgYellow);
+  console.log(`${quantity} ${role} created`.bgYellow);
 })
 
 const gen25Apt = () => Property.insertMany(generateProperties(25), (err, docs) =>{
@@ -141,7 +141,7 @@ const gen25Apt = () => Property.insertMany(generateProperties(25), (err, docs) =
 })
 
 module.exports = {
-  genTenMan,
+  genPerson,
   gen25Apt
 }
 

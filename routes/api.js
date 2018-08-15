@@ -6,7 +6,10 @@ const {
   assignManager,
   login,
   getManagers,
-  getApts
+  getApts,
+  getWorkers,
+  assignApt,
+  assigntWorker
 } = require('../controllers')
 
 router.post('/createman', createManagers)
@@ -19,6 +22,10 @@ router.post('/assignman', assignManager)
 
 router.get('/getmanagers', getManagers)
 router.get('/getapts', getApts)
+router.get('/getworkers', getWorkers)
+
+router.get('/assignapt', assignApt)
+router.get('/assignworker', assigntWorker)
 
 
 module.exports = router;

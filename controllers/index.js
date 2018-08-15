@@ -42,6 +42,34 @@ const getApts = (req, res) => {
   })
 }
 
+const getWorkers = (req, res) => {
+  User.find({ role: "worker" }, (err, list) => {
+    res.send(list)
+  })
+}
+
+const assignApt = (req, res) => {
+  const { managerID, aptID } = req.body;
+  User.update(
+    { _id: managerID },
+    { $push: { assigned: aptID } }
+  ).exec((err, manager) => {
+    if(err) console.log(err);
+    res.send(`${manager} saved succesffuly`)
+  });
+}
+
+const assignWorker = (req, res) => {
+  const { workerID, aptID } = req.body;
+  User.update(
+    { _id: workerID },
+    { $push: { assigned: aptID } }
+  ).exec((err, worker) => {
+    if(err) console.log(err);
+    res.send(`${worker} saved succesffuly`)
+  });
+}
+
 const login = (req, res) => {
   console.log(req.body);
   const { username, password } = req.body;
@@ -66,5 +94,8 @@ module.exports = {
   assignManager,
   login,
   getManagers,
-  getApts
+  getApts,
+  getWorkers,
+  assignApt,
+  assignWorker
 }

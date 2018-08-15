@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
 const Property = require('../models/Property');
-const { genTenMan, gen25Apt } = require('./fakerMethods');
+const { genPerson, gen25Apt } = require('./fakerMethods');
 
 const colors = require('colors');
 
@@ -37,7 +37,8 @@ const seeding = async () => {
       err && console.error(err);
       console.log('admin saved'.rainbow);
     })
-    genTenMan();
+    genPerson(10, 'manager');
+    genPerson(25, 'worker');
   });
   await Property.remove({}, function (err) {
     console.log('Properties removed'.green.bgBlack)
