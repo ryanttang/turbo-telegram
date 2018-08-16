@@ -15,7 +15,7 @@ const getItems = (count, offset = 0) =>
   Array.from({ length: count }, (v, k) => k).map(k => ({
     id: `Property-${k + offset}`,
     content: `PROPERTY: ${k + offset} | ID#: ${Math.round(Math.random() * 100)}  LOCATION: ${Math.round(Math.random() * 100)} North South St`,
-    color: Math.random () > 0.75 ? 'purple': Math.random() > 0.5 ? 'darkgreen' : Math.random() > 0.25 ? 'orange' : 'skyblue',
+    color: Math.random () > 0.75 ? 'purple': Math.random() > 0.5 ? 'darkgreen' : Math.random() > 0.25 ? '#ff9500' : '#13a3ff',
   }))
 
 // a little function to help us with reordering the result
